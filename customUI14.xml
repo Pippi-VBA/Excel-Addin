@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="onLoad">
+<ribbon>
+<tabs>
+<tab id="MENU" getLabel="getLabel" keytip="S" insertBeforeMso="TabHome">
+
+	<group id="addin" label="アドイン" autoScale="true">
+		<button id="AddinConfirm" imageMso="ShapeBasicsHelp" size="normal" label="Ver確認" onAction="Rcall" />
+		<button id="AddUpdate" imageMso="BuildHyperlink" size="normal" label="アドイン更新" onAction="Rcall" />
+		<button id="addin_menu" imageMso="HappyFace" size="normal" label="MENU起動" onAction="Rcall" />
+	</group>
+
+	<group id="Format" label="書式関連" autoScale="true">
+		<box id="FontBox" boxStyle="horizontal">
+		<comboBox idMso="Font" sizeString="WWWWWWWWW" showLabel="false" />
+		<comboBox idMso="FontSize" showLabel="false" />
+		<button idMso="FontSizeIncrease" showLabel="false" />
+		<button idMso="FontSizeDecrease" showLabel="false" />
+		<toggleButton idMso="Bold" showLabel="false" />
+		</box>
+
+		<box id="FontBox2" boxStyle="horizontal">
+		<toggleButton idMso="AlignTopExcel" showLabel="false" />
+		<toggleButton idMso="AlignMiddleExcel" showLabel="false" />
+		<toggleButton idMso="AlignBottomExcel" showLabel="false" />
+		<splitButton idMso="BordersGallery" keytip="D" showLabel="false" />
+		<gallery idMso="CellFillColorPicker" showLabel="false" />
+		<gallery idMso="FontColorPicker" showLabel="false" />
+		<toggleButton idMso="WrapText" label="折返表示" />
+  		</box>
+
+		<box id="FontBox3" boxStyle="horizontal">
+		<toggleButton idMso="AlignLeft" showLabel="false" />
+		<toggleButton idMso="AlignCenter" showLabel="false" />
+		<toggleButton idMso="AlignRight" showLabel="false" />
+		<button idMso="PercentStyle" showLabel="false" />
+		<button idMso="CommaStyle" showLabel="false" />
+		<button idMso="DecimalsIncrease" showLabel="false" />
+		<button idMso="DecimalsDecrease" showLabel="false" />
+		<comboBox idMso="NumberFormatGallery" sizeString="WWWWW" showLabel="false" />
+		</box>
+
+		<dialogBoxLauncher>
+		<button idMso="FormatCellsDialog" />
+		</dialogBoxLauncher>
+	</group>
+	
+	<group id="page" label="よく使う系" autoScale="true">
+		<button idMso="FreezePanes" label="ウィンド固定" />
+		<toggleButton idMso="Filter" />
+		<button idMso="SortDialog" />
+		<button id="ConValue" imageMso="CustomEquationsGallery" size="normal" label="数式→値" supertip="数式を値に変換します。" onAction="Rcall" />
+		<button id="CellMerge" imageMso="MergeCells" size="normal" label="セルの結合" onAction="Rcall" />
+		<splitButton idMso="AutoSumMenu" />
+		<button idMso="ReplaceDialog" />
+		<button id="HomeA1" imageMso="RmsNavigationBarHome" size="normal" label="A1選択" supertip="全シートのカーソル位置をA1にします。" onAction="Rcall" />
+		<button idMso="PasteValues" />
+	</group>
+
+	<group id="Printing_related" label="印刷関連" autoScale="true">
+		<menu idMso="PrintAreaMenu" size="normal" />
+		<button idMso="PageSetupPageDialog" />
+		<button id="PrintKey" image="print" size="normal" label="印刷実行" onAction="Rcall" />
+	</group>
+	
+	<group id="CustomB" label="たまに使う系" autoScale="true">
+		<button idMso="ConvertTextToTable" size="normal" />
+		<menu idMso="ConditionalFormattingMenu" size="normal" />
+		<splitButton idMso="DataValidationMenu" size="normal" />
+
+		<menu id="blankmenu" imageMso="Cut" label="空白削除" size="normal" itemSize="large">
+		<menuSeparator id="cut" title="実行したいMENUを選択してください。" />
+		<button id="SelectTrim" label="選択箇所" description="文字列の前後にある空白を削除します。" image="hasami1" onAction="Rcall" />
+		<button id="CellsTrim" label="シート全体" description="文字列の前後にある空白を削除します。" image="hasami2" onAction="Rcall" />
+		</menu>
+		<button idMso="PivotTableInsert" size="normal" />
+		<button idMso="PivotTableSuggestion" size="normal" label="おすすめピボット" />
+		<button id="PrintSet" imageMso="CatalogMergeMergeToPrinter" size="normal" label="PrintSet" supertip="余白やタイトル行等をいつもの設定にします。" onAction="Rcall" />
+		<button id="RCdisplay" imageMso="ArrangeByRecurrence" size="normal" label="列名変換" supertip="列(A)等を数字に変更。" onAction="Rcall" />
+		<menu id="attention" image="star" label="注目度UP" size="normal" itemSize="large">
+		<menuSeparator id="att1" title="実行したいMENUを選択してください。" />
+		<button id="CreateLines" label="実行" description="ワークシート内の注目させたい箇所に、楕円の図形を挿入して実行して下さい。" image="mario" onAction="Rcall" />
+		<button id="DeleteLines" label="解除" description="注目を解除します。" image="delete" onAction="Rcall" />
+		</menu>
+	</group>
+
+	<group id="wind" label="ウインド" autoScale="true">
+		<button id="lr_Arrange" image="lr" label="左右に並べて表示" supertip="2つ以上のブックを左右均等に並べます。" size="large" onAction="Rcall" />
+	</group>
+
+	<group id="Insert" label="挿入" autoScale="true">
+	<menu id="InsertMenu" label="図形や画像&#xA;グラフ等" image="zukeimenu" supertip="挿入関連のMENU" size="large" itemSize="large">
+		<menuSeparator id="menuSeparator1" title="実行したいMENUを選択してください。" />
+		<gallery idMso="ShapesInsertGallery" />
+		<button idMso="PictureInsertFromFile" label="画像挿入" />
+		<menu id="Graph" label="グラフMENU" image="Graph" supertip="グラフMENU" itemSize="large">
+		<menuSeparator id="menuSeparator2" title="どれにする？" />
+		<button idMso="ChartInsertGalleryNew" />
+		<menuSeparator id="menuSeparator3" />
+		<gallery idMso="ChartTypeColumnInsertGallery" />
+		<menuSeparator id="menuSeparator4" />
+		<gallery idMso="ChartTypeLineInsertGallery" />
+		<menuSeparator id="menuSeparator5" />
+		<gallery idMso="ChartTypePieInsertGallery" />
+		<menuSeparator id="menuSeparator6" />
+		<gallery idMso="ChartTypeXYScatterInsertGallery" />
+		<menuSeparator id="menuSeparator7" />
+		<gallery idMso="ChartTypeComboInsertGallery" />
+		<menuSeparator id="menuSeparator8" />
+		<splitButton idMso="NewPivotChartSplitButton" />
+		</menu>
+		<button idMso="SmartArtInsert" />
+		<button id="paint" imageMso="PictureStylesGallery" label="ペイント起動" onAction="Rcall" description="ペイントを起動します。" />
+		<menuSeparator id="shapedelete" title="削除" />
+		<button id="ShapeAllDelete" image="delete" label="シェイプ/画像の全削除" onAction="Rcall" description="アクティブシートのシェイプ/画像を全て削除します。※ctrl+zで元に戻せません。" />
+	</menu>
+	</group>
+
+	<group id="list_A" label="部署A" autoScale="true" getVisible="menu_Visible" tag="部署A">
+		<menu id="date" imageMso="HappyFace" label="データ&#xD;整形" size="large" itemSize="large">
+		<menuSeparator id="sp" title="実行したいMENUを選択してください。" />
+			<menu id="csvIn" image="csv" label="CSVデータ&#xD;インポート" itemSize="large">
+			<menuSeparator id="csv1" title="実行したいMENUを選択してください。" />
+				<menu id="zaiko" image="csv" label="在庫データ" itemSize="large">
+				<menuSeparator id="csv2" title="取り込む書式を選択してください。" />
+				<button id="zaikoCsvImport1" image="csv" label="数値" description="商品Cの列を数値として取り込み。&#xD;" onAction="Rcall" />
+				<menuSeparator id="zaiko1" />
+				<button id="zaikoCsvImport2" image="csv" label="文字列" description="商品Cの列を文字列として取り込み。&#xD;" onAction="Rcall" />
+				</menu>
+			</menu>
+			<menu id="listmenu" image="listmenu" label="事前調査用や時期物リスト" itemSize="large">
+			<menuSeparator id="list1" title="実行したいMENUを選択してください。" />
+				<menu id="jizenmenu" label="事前調査用" image="jizenlist" description="事前調査用リストの作成をします。" itemSize="large">
+				<menuSeparator id="list2" title="手順1から選択してください。" />
+				<button id="Inventory1" label="手順1" description="基幹システムからデータ取り込み後、実行してください。" image="jizenlist" onAction="Rcall" />
+				<menuSeparator id="jizenSeparator1" />
+				<button id="Inventory2" label="手順2" description="不要行を削除したら実行してください。" image="jizenlist" onAction="Rcall" />
+				<menuSeparator id="jizenSeparator2" />
+				<button id="Inventory3" label="手順3" description="調査完了後、実施数を入力してから実行してください。" image="jizenlist" onAction="Rcall" />
+				<menuSeparator id="jizenSeparator3" />
+				<button id="Inventory4" label="手順4" description="手順3実行後、実行してください。前回の差異データを取り込みます。" image="jizenlist" onAction="Rcall" />
+				<menuSeparator id="jizenSeparator4" />
+				<button id="Inventory5" label="手順5" description="手順4実行後、違うファイルの差異も読み込む場合実行してください。前回の差異データを取り込みます。" image="jizenlist" onAction="Rcall" />
+				<menuSeparator id="jizenSeparator5" />
+				<button id="SafetyStock" label="安全在庫集計" description="センターへ渡す用のファイルを作成します。" imageMso="SummarizeSlide" onAction="Rcall" />
+				</menu>
+		<menuSeparator id="listSeparator1" />
+			<menu id="jikimenu" label="時期物移動用" image="jikilist" description="時期物用リストの作成をします。" itemSize="large">
+				<menuSeparator id="list3" title="手順1から選択してください。" />
+				<button id="Season1" label="手順1" description="基幹システムからデータ取り込み後、実行してください。" image="jikilist" onAction="Rcall" />
+				<button id="Season2" label="手順2" description="不要行を削除したら実行してください。" image="jikilist" onAction="Rcall" />
+			</menu>
+			<menuSeparator id="listSeparator2" />
+			<button id="Move" image="hozyu" label="補充用" description="二元化商品移動用" onAction="Rcall" />
+			</menu>
+		</menu>
+	</group>
+
+	<group id="list_B" label="部署B" autoScale="true" getVisible="menu_Visible" tag="部署B">
+		<menu id="list_tmenu" image="t_menu" label="製作　&#xD;リスト用" size="large" itemSize="large">
+		<menuSeparator id="seisaku1" title="実行したいMENUを選択してください。" />
+		<menu id="list_seisaku" label="3年分を1行へ" image="seisaku1" description="製作リストの3年分3行表示を、3年分1行表示にします。" itemSize="large">
+		<menuSeparator id="seisaku2" title="変更したいcsvファイルを開いてから実行してください。" />
+		<button id="ProList" label="通常版" description="在庫日数が少ない箇所に色が付いたりもします。" image="seisaku2" onAction="Rcall" />
+		<button id="ProListSum" label="合計付き" description="通常版＋売数の最終行に合計とグラフも表示されます。" image="seisaku3" onAction="Rcall" />
+		</menu>
+		<button id="MultiBag" image="maluti" label="〇〇専用" description="〇〇以外には使用しないでください。" onAction="Rcall" />
+		<button id="ProExplanation" image="info" label="制作リスト用VBAの使い方や説明" description="1度は目を通してください。" onAction="Rcall" />
+		</menu>
+	</group>
+
+	<group id="list_C" label="部署C" autoScale="true" getVisible="menu_Visible" tag="部署C">
+		<button id="test_c" label="テスト&#xD;" description="何も起こらないよ～" size="large" imageMso="HappyFace" onAction="Rcall" />
+	</group>
+
+	<group id="google" label="google" autoScale="true">
+	<button id="GoogleSuggest" label="検索" image="google" size="large" supertip="規定ブラウザで検索します。" onAction="Rcall" />
+	</group>
+
+	<group id="etc" label="etc" autoScale="true">
+		<button id="Calendar" label="カレンダー&#xD;フォーム" image="cale01" size="large" supertip="カレンダーフォームを表示します。" onAction="Rcall" />
+		<menu id="hougan" label="方眼紙&#xD;MENU" supertip="セルを方眼紙にします。" itemSize="large" imageMso="DatasheetGridlinesBoth" size="large">
+		<menuSeparator id="houmenu1" title="作成する方眼紙のサイズを選択してください。" />
+			<button id="btnsub5" label="注意事項" description="規定フォントが「Meiryo UI」で「12」ポンドの場合のみ綺麗な方眼紙になります。それ以外は多少のズレが生じますので、各自微調整をお願いします。" imageMso="TraceError" />
+			<button id="h21pic" label="21ピクセル" description="21ピクセルの方眼紙を作成します。" imageMso="DatasheetGridlinesBoth" onAction="Rcall" />
+			<button id="h26pic" label="26ピクセル" description="26ピクセルの方眼紙を作成します。" imageMso="DatasheetGridlinesBoth" onAction="Rcall" />
+			<button id="h31pic" label="31ピクセル" description="31ピクセルの方眼紙を作成します。" imageMso="DatasheetGridlinesBoth" onAction="Rcall" />
+			<button id="h00pic" label="初期値へ" description="標準に戻します。※規定フォントにより異なります。" image="undo" onAction="Rcall" />
+		</menu>
+		<menu id="inkan" label="電子印鑑&#xD;MENU" supertip="電子印のメニュー" itemSize="large" image="inkan1" size="large">
+		<menuSeparator id="inkan001" title="作成する印鑑のメニューを選択してください。" />
+			<button id="NameIn" image="inkan2" label="シャチハタ印" description="シャチハタ印を作成します。" onAction="Rcall" />
+			<button id="ElectronicSeal" image="inkan" label="カスタム印鑑" description="「部署,名前,日付」入りの印鑑を作成します。" onAction="Rcall" />
+			<button id="BusinessIn" image="business" label="ビジネス印" description="「社外秘,見本,回覧」等の、ビジネスで活用する印鑑を作成します。" onAction="Rcall" />
+		</menu>
+		<button id="CrossLine" image="crossLine" label="十字&#xD;カーソル" supertip="選択セルを判りやすくします。" size="large" onAction="Rcall" />
+		<button id="StcMenu" imageMso="ViewTwoPages" label="STCキー&#xA;一覧" supertip="ショートカットキー説明" size="large" onAction="Rcall" />
+	</group>
+	<group id="svbe" label="VBE" autoScale="true" getVisible="menu_Visible" tag="admin">
+		<button idMso="VisualBasic" size="large" />
+	</group>
+
+</tab>
+<tab id="frow" label="フローチャート">
+	<group id="kyoutu" label="共通" autoScale="true">
+	<button id="selected" label="フロー&#xD;全選択" imageMso="XDBlock" size="large" onAction="Rcall" />
+	<button id="deleted" label="フロー&#xD;全消去" image="delete" size="large" onAction="Rcall" />
+	<separator id="frowsepa1" />
+	<button id="frameSlelect" label="枠のみ&#xD;全選択" image="allframe" size="large" onAction="Rcall" />
+	<button id="conSlelect" label="線のみ&#xD;全選択" image="allcon" size="large" onAction="Rcall" />
+	<separator id="frowsepa2" />
+	<button id="frowStart" label="開始" imageMso="TransitionsAndAnimationsGiveFeedback" size="large" onAction="Rcall" />
+	<menu idMso="ObjectEditShapeMenu" size="large" />
+	</group>
+
+	<group id="gfrowLine" label="線付き" autoScale="true">
+	<button id="conUpLine" label="上に挿入" image="Up1" size="normal" onAction="Rcall" />
+	<button id="conLeftLine" label="左に挿入" image="Left1" size="normal" onAction="Rcall" />
+	<button id="upLeft" label="戻る(左)" image="reset1" size="normal" onAction="Rcall" />
+	<button id="conDownLine" label="下に挿入" image="Down1" size="normal" onAction="Rcall" />
+	<button id="conRightLine" label="右に挿入" image="Right1" size="normal" onAction="Rcall" />
+	<button id="upRigtht" label="戻る(右)" image="revert1" size="normal" onAction="Rcall" />
+	</group>
+
+	<group id="gfrow" label="線無し" autoScale="true">
+	<button id="conUp" label="上に挿入" image="Up2" size="normal" onAction="Rcall" />
+	<button id="conLeft" label="左に挿入" image="Left2" size="normal" onAction="Rcall" />
+	<button id="straightLine" label="コネクタ(直線)" imageMso="ShapeConnectorStyleStraight" size="normal" onAction="Rcall" />
+	<button id="conDown" label="下に挿入" image="Down2" size="normal" onAction="Rcall" />
+	<button id="conRight" label="右に挿入" image="Right2" size="normal" onAction="Rcall" />
+	<button id="KeyLine" label="コネクタ(カギ)" imageMso="ShapeConnectorStyleElbow" size="normal" onAction="Rcall" />
+	</group>
+
+	<group id="gfrows" label="線付き（矢印）" autoScale="true">
+	<button id="conUpLineS" label="上に挿入" image="Up3" size="normal" onAction="Rcall" />
+	<button id="conLeftLineS" label="左に挿入" image="Left3" size="normal" onAction="Rcall" />
+	<button id="upLeftS" label="戻る(左)" image="reset3" size="normal" onAction="Rcall" />
+	<button id="conDownLineS" label="下に挿入" image="Down3" size="normal" onAction="Rcall" />
+	<button id="conRightLineS" label="右に挿入" image="Right3" size="normal" onAction="Rcall" />
+	<button id="upRigthtS" label="戻る(右)" image="revert3" size="normal" onAction="Rcall" />
+	</group>
+	<group id="Frame" label="各種フレームワーク" autoScale="true">
+	<box id="box1" boxStyle="vertical" >
+	<labelControl id="label1" label="→ここから右のボタンは" />
+	<labelControl id="label2" label="→各種テンプレートのシートを" />
+	<labelControl id="label3" label="→現在のファイルに追加します。" />
+	</box>
+	<separator id="logi" />
+	<button id="mondai" label="問題抽出" image="gmondai" size="large" onAction="Rcall" />
+	<button id="naze" label="なぜ分析" image="gnaze" size="large" onAction="Rcall" />
+	<button id="logic" label="ロジック&#xD;" image="glogi" size="large" onAction="Rcall" />
+	<button id="logictree" label="ツリー&#xD;" image="gtree" size="large" onAction="Rcall" />
+	<button id="Persuasion" label="説得ロジック&#xD;" image="gPersu" size="large" onAction="Rcall" />
+	</group>
+</tab>
+</tabs>
+</ribbon>
+  <contextMenus>
+    <contextMenu idMso="ContextMenuShape">
+      <menuSeparator id="mySep1" />
+      <menu idMso="ObjectAlignMenu" visible="true" />
+      <gallery idMso="ObjectRotateGallery" visible="true" />
+    </contextMenu>
+    <contextMenu idMso="ContextMenuObjectsGroup">
+      <menuSeparator id="mySep2" />
+      <menu idMso="ObjectAlignMenu" visible="true" />
+      <gallery idMso="ObjectRotateGallery" visible="true" />
+    </contextMenu>
+  </contextMenus>
+</customUI>
